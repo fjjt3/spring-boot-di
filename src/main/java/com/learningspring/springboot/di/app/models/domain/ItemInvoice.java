@@ -4,6 +4,11 @@ public class ItemInvoice {
     private Product product;
     private Integer quantity;
 
+    public ItemInvoice(Product product, Integer quantity) {
+        this.product = product;
+        this.quantity = quantity;
+    }
+
     public Product getProduct() {
         return product;
     }
@@ -18,5 +23,9 @@ public class ItemInvoice {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public Integer calculateAmount(){
+        return quantity * product.getPrice();
     }
 }

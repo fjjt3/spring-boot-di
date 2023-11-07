@@ -9,10 +9,12 @@ import java.util.List;
 @Component
 public class Invoice {
 
-    @Value("${description.invoice}")
+    @Value("${invoice.description}")
     private String description;
     @Autowired
-    private Client cliente;
+    private Client client;
+
+    @Autowired
     private List<ItemInvoice> items;
 
     public String getDescription() {
@@ -23,12 +25,12 @@ public class Invoice {
         this.description = description;
     }
 
-    public Client getCliente() {
-        return cliente;
+    public Client getClient() {
+        return client;
     }
 
-    public void setCliente(Client cliente) {
-        this.cliente = cliente;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     public List<ItemInvoice> getItems() {
