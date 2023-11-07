@@ -1,6 +1,8 @@
 package com.learningspring.springboot.di.app.controller;
 
-import com.learningspring.springboot.di.app.models.service.MyService;
+import com.learningspring.springboot.di.app.models.service.IService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,7 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class IndexController {
 
-    private MyService myService = new MyService();
+    @Autowired
+    private IService myService;
+
 
     @GetMapping({"/","","/index"})
     public String index(Model model) {
@@ -16,4 +20,5 @@ public class IndexController {
         model.addAttribute("object", myService.oparation());
         return "index";
     }
+
 }
