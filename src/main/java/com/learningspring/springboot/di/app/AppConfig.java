@@ -38,6 +38,20 @@ public class AppConfig {
 
 
     }
+
+    @Bean("itemsInvoiceOffice")
+    @Primary
+    public List<ItemInvoice> registerItemsOffice(){
+        Product product1 = new Product("I Phone 15", 1500);
+        Product product2 = new Product("I Pad Pro", 1200);
+
+        ItemInvoice line1 = new ItemInvoice(product1, 2);
+        ItemInvoice line2 = new ItemInvoice(product2, 3);
+
+        return Arrays.asList(line1, line2);
+
+
+    }
 }
 
 
